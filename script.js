@@ -1,3 +1,4 @@
+// Create objet from user imput
 function createObjectFromUserInput(userTitle, userDescription, userDeadline, userFile) {
     return {
         title: userTitle,
@@ -7,6 +8,7 @@ function createObjectFromUserInput(userTitle, userDescription, userDeadline, use
     };
 }
 
+// Assign objet to function "add task" (on click "Add" button)
 let tasks = new Array();
 
 function addTask() {
@@ -29,12 +31,7 @@ function addTask() {
     insertTask(tasks)
 }
 
-function deleteTask(taskToDelete) {
-    tasks.splice(tasks.indexOf(taskToDelete), 1)
-
-    console.log(tasks)
-}
-
+// Add new task to To Do List
 function insertTask(tasks) {
     tasks.forEach((element, index) => {
         document.getElementById("tasks").innerHTML += `
@@ -49,5 +46,14 @@ function insertTask(tasks) {
     });
 }
 
-// Click on a delete button to hide the current list item
+
+// Function to delete task (on click "Delete" button)
+let taskToDelete = tasks.indexOf(taskToDelete)
+
+function deleteTask(taskToDelete) {
+    let taskToDelete = tasks.indexOf(taskToDelete)
+    tasks.splice(taskToDelete, 1)
+
+    console.log(tasks)
+}
 
