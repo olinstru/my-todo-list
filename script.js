@@ -48,8 +48,6 @@ function insertTask(tasks) {
 
 
 // Function to delete task (on click "Delete" button)
-let taskToDelete = tasks.indexOf(taskToDelete)
-
 function deleteTask(taskToDelete) {
     let taskToDelete = tasks.indexOf(taskToDelete)
     tasks.splice(taskToDelete, 1)
