@@ -1,3 +1,4 @@
+// Function to turn user imput into an objet
 function createObjectFromUserInput(userTitle, userDescription, userDeadline, userFile) {
     return {
         title: userTitle,
@@ -19,7 +20,7 @@ function clearInputFields() {
 
 // Function to handle image upload
 function handleImageUpload() {
-    const input = document.getElementById('imageInput');
+    const input = document.getElementById('taskFile');
     const imageContainer = document.getElementById('imageContainer');
 
     if (input.files && input.files[0]) {
@@ -36,8 +37,6 @@ function handleImageUpload() {
         reader.readAsDataURL(input.files[0]);
     }
 }
-
-
 
 // Add task on click
 function addTask() {
@@ -60,6 +59,7 @@ function addTask() {
     clearInputFields(); // Call the function to clear inputs
 }
 
+// Function to show list of tasks
 function showList(tasks) {
     var listItems = tasks.map((element, index) => `
         <li id="${element.title}-${index}"> 
@@ -74,9 +74,9 @@ function showList(tasks) {
 
     document.getElementById("tasks").innerHTML = listItems.join("");
     console.log(document.getElementById("taskFile").value);
-
 }
 
+// Function to delete a task
 function deleteTask(index) {
     tasks.splice(index, 1);
     console.log(tasks)
