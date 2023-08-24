@@ -43,13 +43,16 @@ function showList(tasks) {
         ${element.title}<br>
         ${element.description}<br>
         Deadline: ${element.deadline}<br>
-        Image: ${element.file}<br>
+        Image: <img src="${element.file}"><br>
         <button id="deleteButton" onclick="deleteTask(${index})">Delete</button>
         </li>
     `);
 
     document.getElementById("tasks").innerHTML = listItems.join("");
+    console.log(element.file);
+
 }
+
 
 function deleteTask(index) {
     tasks.splice(index, 1);
