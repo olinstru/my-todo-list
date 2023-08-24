@@ -36,12 +36,13 @@ function handleImageUpload(file) {
 function onChangeFile(file) {
     handleImageUpload(file);
    console.log(URL.createObjectURL(file))
-
 }
 
 
 // Add task on click
 function addTask() {
+    let fileInput = document.getElementById("taskFile")
+    let file = fileInput.files[0]; // Get the selected file
     let task = createObjectFromUserInput(
         document.getElementById("taskTitle").value,
         document.getElementById("taskDescription").value,
@@ -55,10 +56,11 @@ function addTask() {
 
     tasks.push(task);
     console.log(tasks);
-    console.log(document.getElementById("taskFile"));
 
     document.getElementById("tasks").innerHTML = ""
     showList(tasks)
+
+    handleImageUpload(file); // Display the uploaded image
 
     clearInputFields(); // Call the function to clear inputs
 }
