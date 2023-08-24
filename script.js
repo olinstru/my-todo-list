@@ -66,7 +66,7 @@ function showList(tasks) {
         ${element.title}<br>
         ${element.description}<br>
         Deadline: ${element.deadline}<br>
-        Image: ${element.file ? `<img src="${element.file}">
+        Image: ${element.file ? `<img id="userImg" src="${element.file}">
         <br>` : 'No image available<br>'}
         <button id="deleteButton" onclick="deleteTask(${index})">Delete</button>
         </li>
