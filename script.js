@@ -23,20 +23,23 @@ function handleImageUpload() {
     const input = document.getElementById('taskFile');
     const imageContainer = document.getElementById('imageContainer');
 
-    if (input.files && input.files[0]) {
-        const reader = new FileReader();
+    input.addEventListener('change', function () {
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
 
-        reader.onload = function(e) {
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            img.style.maxWidth = '100%';
-            imageContainer.innerHTML = '';
-            imageContainer.appendChild(img);
-        };
+            reader.onload = function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.style.maxWidth = '100%';
+                imageContainer.innerHTML = '';
+                imageContainer.appendChild(img);
+            };
 
-        reader.readAsDataURL(input.files[0]);
-    }
+            reader.readAsDataURL(input.files[0]);
+        }
+    });
 }
+
 
 // Add task on click
 function addTask() {
