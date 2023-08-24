@@ -9,6 +9,14 @@ function createObjectFromUserInput(userTitle, userDescription, userDeadline, use
 
 let tasks = new Array();
 
+// Function to clear input fields
+function clearInputFields() {
+    document.getElementById("taskTitle").value = "";
+    document.getElementById("taskDescription").value = "";
+    document.getElementById("taskDeadline").value = "";
+    document.getElementById("taskFile").value = "";
+}
+
 function addTask() {
     let task = createObjectFromUserInput(
         document.getElementById("taskTitle").value,
@@ -25,6 +33,8 @@ function addTask() {
     console.log(tasks)
     document.getElementById("tasks").innerHTML = ""
     showList(tasks)
+
+    clearInputFields(); // Call the function to clear inputs
 }
 
 function showList(tasks) {
