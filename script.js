@@ -41,21 +41,8 @@ function showList(tasks) {
     document.getElementById("tasks").innerHTML = listItems.join("");
 }
 
-
-function deleteTask() {
-    taskToDelete = task.indexOf()
-    console.log(taskToDelete)
-}
-
-// let taskId = document.getElementById(`"${element.title}-${index}"`);
-   // console.log(tasks.indexOf(task))
-    /*   let taskToDelete = taskId;
-      tasks.splice(taskToDelete, 1)
-          console.log(tasks) */
-
-
-/* function deleteTask(taskToDelete) {
-    taskToDelete = tasks.splice(tasks.indexOf(this), 1)
-
+function deleteTask(index) {
+    tasks.splice(index, 1);
     console.log(tasks)
-} */
+    showList(tasks); // Refresh the list after deletion
+}
