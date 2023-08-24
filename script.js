@@ -17,6 +17,23 @@ function clearInputFields() {
     document.getElementById("taskFile").value = "";
 }
 
+// Saving user image
+const userImg = document.getElementById("taskFile");
+var uploadedImg = "";
+
+function addUserImg() {
+    userImg.addEventListener("change", function(){
+    const reader = new FileReader();
+    reader.addEventListener("load", () => {
+        uploadedImg = reader.result;
+        document.querySelector("li") = `url(${uploadedImg})`;
+    });
+    reader.readAsDataURL(this.files[O]);
+    })
+} 
+
+
+// Add task on click
 function addTask() {
     let task = createObjectFromUserInput(
         document.getElementById("taskTitle").value,
@@ -43,7 +60,8 @@ function showList(tasks) {
         ${element.title}<br>
         ${element.description}<br>
         Deadline: ${element.deadline}<br>
-        Image: ${element.file ? `<img src="${element.file}"><br>` : 'No image available<br>'}
+        Image: ${element.file ? `<img src="${prependSchemeIfNeeded(element.file)}">
+        <br>` : 'No image available<br>'}
         <button id="deleteButton" onclick="deleteTask(${index})">Delete</button>
         </li>
     `);
@@ -53,6 +71,15 @@ function showList(tasks) {
 
 }
 
+// This function prepends a scheme to a URL if needed
+function prependSchemeIfNeeded(url) {
+    // Check if the URL starts with a recognized scheme
+    if (!url.startsWith('http://') && !url.startsWith('https://') && !url.startsWith('data:') && !url.startsWith('file:')) {
+        // Prepend 'http://' as a default scheme
+        url = 'http://' + url;
+    }
+    return url;
+}
 
 function deleteTask(index) {
     tasks.splice(index, 1);
