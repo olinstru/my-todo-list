@@ -30,7 +30,7 @@ function addTask() {
 }
 
 function deleteTask(taskToDelete) {
-    tasks.splice(tasks.indexOf(taskToDelete), 1)
+    taskToDelete = tasks.splice(tasks.indexOf(this), 1)
 
     console.log(tasks)
 }
