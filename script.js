@@ -71,16 +71,6 @@ function showList(tasks) {
 
 }
 
-// This function prepends a scheme to a URL if needed
-function prependSchemeIfNeeded(url) {
-    // Check if the URL starts with a recognized scheme
-    if (!url.startsWith('http://') && !url.startsWith('https://') && !url.startsWith('data:') && !url.startsWith('file:')) {
-        // Prepend 'http://' as a default scheme
-        url = 'http://' + url;
-    }
-    return url;
-}
-
 function deleteTask(index) {
     tasks.splice(index, 1);
     console.log(tasks)
