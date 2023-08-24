@@ -23,14 +23,12 @@ function addTask() {
 
     tasks.push(task);
     console.log(tasks)
-
     document.getElementById("tasks").innerHTML = ""
-
     showList(tasks)
 }
 
 function showList(tasks) {
-    tasks.forEach((element, index) => {
+    var listItem = tasks.forEach((element, index) => {
         document.getElementById("tasks").innerHTML += `
             <li id="${element.title}-${index}"> 
             ${element.title}<br>
@@ -43,6 +41,20 @@ function showList(tasks) {
     });
 }
 
-function deleteTask(i) {
-    tasks.splice(i, 1)
+function deleteTask() {
+    taskToDelete = task.indexOf()
+    console.log(taskToDelete)
+
+    // let taskId = document.getElementById(`"${element.title}-${index}"`);
+   // console.log(tasks.indexOf(task))
+    /*   let taskToDelete = taskId;
+      tasks.splice(taskToDelete, 1)
+          console.log(tasks) */
 }
+
+
+/* function deleteTask(taskToDelete) {
+    taskToDelete = tasks.splice(tasks.indexOf(this), 1)
+
+    console.log(tasks)
+} */
