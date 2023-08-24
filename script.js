@@ -26,16 +26,10 @@ function addTask() {
 
     document.getElementById("tasks").innerHTML = ""
 
-    insertTask(tasks)
+    showList(tasks)
 }
 
-function deleteTask(taskToDelete) {
-    taskToDelete = tasks.splice(tasks.indexOf(this), 1)
-
-    console.log(tasks)
-}
-
-function insertTask(tasks) {
+function showList(tasks) {
     tasks.forEach((element, index) => {
         document.getElementById("tasks").innerHTML += `
             <li id="${element.title}-${index}"> 
@@ -49,5 +43,7 @@ function insertTask(tasks) {
     });
 }
 
-// Click on a delete button to hide the current list item
-
+function deleteTask() {
+    taskToDelete = tasks.splice(tasks.indexOf(this), 1)
+    console.log(tasks)
+}
