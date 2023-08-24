@@ -43,13 +43,13 @@ function showList(tasks) {
         ${element.title}<br>
         ${element.description}<br>
         Deadline: ${element.deadline}<br>
-        Image: <img src="${element.file}"><br>
+        Image: ${element.file ? `<img src="${element.file}"><br>` : 'No image available<br>'}
         <button id="deleteButton" onclick="deleteTask(${index})">Delete</button>
         </li>
     `);
 
     document.getElementById("tasks").innerHTML = listItems.join("");
-    console.log(element.file);
+    console.log(document.getElementById("taskFile").value);
 
 }
 
