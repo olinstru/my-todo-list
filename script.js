@@ -19,13 +19,8 @@ function clearInputFields() {
 }
 
 // Function to handle image upload
-function handleImageUpload() {
-    const input = document.getElementById('taskFile');
-    const imageContainer = document.getElementById('imageContainer');
-
-    input.addEventListener('change', function () {
-        if (input.files && input.files[0]) {
-            const reader = new FileReader();
+function handleImageUpload(file) {
+    const reader = new FileReader();
 
             reader.onload = function(e) {
                 const img = document.createElement('img');
@@ -35,9 +30,13 @@ function handleImageUpload() {
                 imageContainer.appendChild(img);
             };
 
-            reader.readAsDataURL(input.files[0]);
-        }
-    });
+            reader.readAsDataURL(file);
+}
+
+function onChangeFile(file) {
+    handleImageUpload(file);
+   console.log(URL.createObjectURL(file))
+
 }
 
 
@@ -55,7 +54,9 @@ function addTask() {
     }
 
     tasks.push(task);
-    console.log(tasks)
+    console.log(tasks);
+    console.log(document.getElementById("taskFile"));
+
     document.getElementById("tasks").innerHTML = ""
     showList(tasks)
 
