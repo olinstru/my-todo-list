@@ -17,20 +17,26 @@ function clearInputFields() {
     document.getElementById("taskFile").value = "";
 }
 
-// Saving user image
-const userImg = document.getElementById("taskFile");
-var uploadedImg = "";
+// Function to handle image upload
+function handleImageUpload() {
+    const input = document.getElementById('imageInput');
+    const imageContainer = document.getElementById('imageContainer');
 
-function addUserImg() {
-    userImg.addEventListener("change", function(){
-    const reader = new FileReader();
-    reader.addEventListener("load", () => {
-        uploadedImg = reader.result;
-        document.querySelector("li") = `url(${uploadedImg})`;
-    });
-    reader.readAsDataURL(this.files[O]);
-    })
-} 
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.style.maxWidth = '100%';
+            imageContainer.innerHTML = '';
+            imageContainer.appendChild(img);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
 
 
 // Add task on click
@@ -60,7 +66,7 @@ function showList(tasks) {
         ${element.title}<br>
         ${element.description}<br>
         Deadline: ${element.deadline}<br>
-        Image: ${element.file ? `<img src="${prependSchemeIfNeeded(element.file)}">
+        Image: ${element.file ? `<img src="${element.file}">
         <br>` : 'No image available<br>'}
         <button id="deleteButton" onclick="deleteTask(${index})">Delete</button>
         </li>
