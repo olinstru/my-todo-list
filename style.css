@@ -20,16 +20,15 @@ h1 {
 .newTask, .tasks {
     display: flex;
     flex-direction: column;
+    padding: 30px;
 }
 
 input {
-    margin: auto;
     width: 80%;
     height: 35px;
 }
 
 label {
-    margin: auto;
     width: 80%;
 }
 
