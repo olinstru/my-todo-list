@@ -43,7 +43,6 @@ function showList(tasks) {
     });
 }
 
-function deleteTask() {
-    taskToDelete = tasks.splice(tasks.indexOf(this), 1)
-    console.log(tasks)
+function deleteTask(i) {
+    tasks.splice(i, 1)
 }
