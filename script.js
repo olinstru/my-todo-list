@@ -52,7 +52,6 @@ function onChange() {
     });
 }
 
-
 // Add task on click
 function addTask() {
     let fileInput = document.getElementById("taskFile")
@@ -74,26 +73,24 @@ function addTask() {
     document.getElementById("tasks").innerHTML = ""
     showList(tasks)
 
-    handleImageUpload(file); // Display the uploaded image
-
     clearInputFields(); // Call the function to clear inputs
 }
 
 // Function to show list of tasks
-function showList(tasks) {
+function showList(tasks, base64) {
     var listItems = tasks.map((element, index) => `
         <li id="${element.title}-${index}"> 
         ${element.title}<br>
         ${element.description}<br>
         Deadline: ${element.deadline}<br>
-        Image: ${element.file ? `<img id="userImg" src="${element.file}">
+        Base64: ${base64}<br>
+        Image:<br> ${element.file ? `<img id="userImg" src="${base64}">
         <br>` : 'No image available<br>'}
         <button id="deleteButton" onclick="deleteTask(${index})">Delete</button>
         </li>
     `);
 
     document.getElementById("tasks").innerHTML = listItems.join("");
-    console.log(document.getElementById("taskFile").value);
 }
 
 // Function to delete a task
