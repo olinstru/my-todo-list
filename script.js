@@ -81,7 +81,6 @@ function showList(tasks, base64) {
         ${element.title}<br>
         ${element.description}<br>
         Deadline: ${element.deadline}<br>
-        Base64: ${base64}<br>
         Image:<br> ${element.file ? `<img id="userImg" src="${base64}">
         <br>` : 'No image available<br>'}
         <button id="deleteButton" onclick="deleteTask(${index})">Delete</button>
