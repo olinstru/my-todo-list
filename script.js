@@ -33,9 +33,23 @@ function clearInputFields() {
             reader.readAsDataURL(file);
 } */
 
-function onChangeFile(file) {
-    handleImageUpload(file);
-   console.log(URL.createObjectURL(file))
+// Function to convert image to Base64 string
+function onChange() {
+    let userImg = document.getElementById("taskFile");
+    userImg.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onloadend = function() {
+            const base64 = reader.result;
+            document.getElementById('outputBase64').value = base64;
+
+            // Call showList after loading the Base64
+            showList(tasks, base64);
+        };
+
+        reader.readAsDataURL(file);
+    });
 }
 
 
