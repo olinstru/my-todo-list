@@ -38,35 +38,46 @@ function onChange() {
 
 // Add task on click
 function addTask() {
-    let task = createObjectFromUserInput(
-        document.getElementById("taskTitle").value,
-        document.getElementById("taskDescription").value,
-        document.getElementById("taskDeadline").value,
-        currentBase64 // Use the stored base64 value here
-    );
+    let fileInput = document.getElementById("taskFile");
+    let file = fileInput.files[0]; // Get the selected file
 
-    if (!task) {
-        alert("Please add a task");
+    if (file) {
+        const reader = new FileReader();
+        reader.onloadend = function() {
+            let task = createObjectFromUserInput(
+                document.getElementById("taskTitle").value,
+                document.getElementById("taskDescription").value,
+                document.getElementById("taskDeadline").value,
+                reader.result // Store the base64 value for this task
+            );
+
+            if (!task) {
+                alert("Please add a task");
+                return;
+            }
+
+            tasks.push(task);
+            console.log(tasks);
+
+            document.getElementById("tasks").innerHTML = "";
+            showList(tasks);
+
+            clearInputFields(); // Call the function to clear inputs
+        };
+
+        reader.readAsDataURL(file);
     }
-
-    tasks.push(task);
-    console.log(tasks);
-
-    document.getElementById("tasks").innerHTML = "";
-    showList(tasks, currentBase64); // Pass the base64 value to showList
-
-    clearInputFields(); // Call the function to clear inputs
 }
 
 // Function to show list of tasks
-function showList(tasks, base64) {
+function showList(tasks) {
     var listItems = tasks.map((element, index) => `
         <li id="${element.title}-${index}"> 
-        <h2>${element.title}</h1><br>
+        <h2>${element.title}</h2><br>
         ${element.description}<br>
         <br>
         Deadline: ${element.deadline}<br>
-        <br> ${element.file ? `<img id="userImg" src="${base64}">
+        <br> ${element.file ? `<img id="userImg" src="${element.file}">
         <br>` : 'No image available<br>'}
         <br>
         <button id="deleteButton" onclick="deleteTask(${index})">Delete</button>
