@@ -45,7 +45,7 @@ function onChange() {
             document.getElementById('outputBase64').value = base64;
 
             // Call showList after loading the Base64
-            showList(tasks, base64);
+            // showList(tasks, base64);
         };
 
         reader.readAsDataURL(file);
@@ -54,8 +54,6 @@ function onChange() {
 
 // Add task on click
 function addTask() {
-    let fileInput = document.getElementById("taskFile")
-    let file = fileInput.files[0]; // Get the selected file
     let task = createObjectFromUserInput(
         document.getElementById("taskTitle").value,
         document.getElementById("taskDescription").value,
