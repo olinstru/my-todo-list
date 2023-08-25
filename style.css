@@ -52,3 +52,7 @@ li {
 .taskTitle input {
     font-weight: bold;
 }
+
+img {
+    max-width: 100%;
+}

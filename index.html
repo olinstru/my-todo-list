@@ -13,16 +13,17 @@
     <h1>My To Do List</h1>
 
     <div id="newTask" class="newTask">
-        <input type="text" id="taskTitle" class="taskTitle" placeholder="Add Task">
+        <input type="text" id="taskTitle" class="taskTitle" placeholder="Add task title">
+        <br>
         <input type="text" id="taskDescription" class="taskDescription" placeholder="Add description">
        
     <br>
         <label>Deadline:</label><br>
         <input id="taskDeadline" type="date"><br>
         <label>Add image:</label>
+        <br>
         <input type="file" id="taskFile" accept="image/*" onclick="onChange()" ><br>
         <button id="addButton" onclick="addTask()">Add</button>
-        <textarea name="" id="outputBase64" cols="30" rows="10"></textarea>
      </div>
     
     <ul id="tasks" class="tasks">
