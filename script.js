@@ -19,7 +19,7 @@ function clearInputFields() {
 }
 
 // Function to handle image upload
-function handleImageUpload(file) {
+/* function handleImageUpload(file) {
     const reader = new FileReader();
 
             reader.onload = function(e) {
@@ -31,7 +31,7 @@ function handleImageUpload(file) {
             };
 
             reader.readAsDataURL(file);
-}
+} */
 
 function onChangeFile(file) {
     handleImageUpload(file);
