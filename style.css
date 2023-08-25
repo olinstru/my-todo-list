@@ -40,16 +40,13 @@ label {
     margin: auto;
 }
 
-.tasks {
-    background-color: lightsalmon;
-    border-radius: 15px;
-    margin: 50px;
-}
-
 li {
     list-style: none; 
     margin-top: 15px;
     margin-bottom: 15px;
+    background-color: lightsalmon;
+    border-radius: 30px;
+    padding: 20px;
 }
 
 .taskTitle input {
