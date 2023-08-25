@@ -18,21 +18,6 @@ function clearInputFields() {
     document.getElementById("taskFile").value = "";
 }
 
-// Function to handle image upload
-/* function handleImageUpload(file) {
-    const reader = new FileReader();
-
-            reader.onload = function(e) {
-                const img = document.createElement('img');
-                img.src = e.target.result;
-                img.style.maxWidth = '100%';
-                imageContainer.innerHTML = '';
-                imageContainer.appendChild(img);
-            };
-
-            reader.readAsDataURL(file);
-} */
-
 let currentBase64 = ""; // Declare a global variable
 
 // Function to convert image to Base64 string
